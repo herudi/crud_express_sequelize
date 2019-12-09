@@ -1,0 +1,64 @@
+<%- include('partials/header'); -%>
+<br>
+<div id="app" class="container">
+	<h2>Data Brand</h2>
+	<span>This view show of brands</span>
+	<hr>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text">Search : </span>
+			  </div>
+			  <input v-model="search" v-on:keyup.enter="onSearch()" type="text" class="form-control" placeholder="Enter search by name ...">
+			</div>
+		</div>
+		<div class="col-md-2">
+			<button @click="onAdd()" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block">+ Add New</button>
+		</div>
+	</div>
+	<table class="table table-bordered table-sm">
+	    <thead class="thead-dark">
+	      <tr>
+	        <th># ID</th>
+	        <th># NAME</th>
+	        <th># ACTION</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr v-for="item in brands">
+	        <td width="80">{{item.id}}</td>
+	        <td>{{item.name}}</td>
+	        <td width="120">
+	        	<button @click="onEdit(item)" class="btn btn-info btn-sm">edit</button>
+          		<button @click="onDelete(item)" class="btn btn-danger btn-sm">delete</button>
+	        </td>
+	      </tr>
+	    </tbody>
+	</table>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Form Brand</h5>
+	        <button type="button" @click="getBrands()" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			  <div class="form-group">
+			    <label>Name</label>
+			    <input v-model="brand.name" type="text" class="form-control" placeholder="Brands name">
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button @click="getBrands()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button :disabled="!brand.name" @click="onSave()" class="btn btn-primary">{{btn_text}}</button>
+	      </div>
+	    </div>
+		
+	  </div>
+	</div>
+</div>
+<script src="/public/app/brand.js"></script>
+<%- include('partials/footer'); -%>

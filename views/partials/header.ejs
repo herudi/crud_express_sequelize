@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>CRUD Nodejs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="/public/libs/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="/public/libs/css/sweetalert2.min.css" type="text/css" />
+</head>
+<body>
+	<script type="text/javascript">
+		(function (root) {
+          'use strict'
+          var full_url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '')+"/";
+          root.BASE_API = full_url+"api_v1/";
+          root.BASE_URL = full_url;
+      })(this);
+	</script>
+	<script src="/public/libs/js/jquery.slim.min.js"></script>
+	<script src="/public/libs/js/propper.min.js"></script>
+	<script src="/public/libs/js/bootstrap.min.js"></script>
+	<script src="/public/libs/js/sweetalert2.min.js"></script>
+	<script src="/public/libs/js/axios.min.js"></script>
+	<script src="/public/libs/js/vue.min.js"></script>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="/">CRUD NODEJS</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	      <a class="nav-item nav-link" href="/brand">BRAND</a>
+	      <a class="nav-item nav-link" href="/item">ITEM</a>
+	    </div>
+	  </div>
+	</nav>

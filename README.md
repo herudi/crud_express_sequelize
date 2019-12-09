@@ -30,10 +30,6 @@ change username and password and database_name (if you want). on path /config/co
 
 You can access via http://localhost:3000/
 
-GET : http://localhost:3000/api_v1/item
-
-GET : http://localhost:3000/api_v1/brand
-
 Good Look :)
 
 

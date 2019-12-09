@@ -1,0 +1,87 @@
+<%- include('partials/header'); -%>
+<br>
+<div id="app" class="container">
+	<h2>Data Item</h2>
+	<span>This view show of items</span>
+	<hr>
+	<div class="row">
+		<div class="col-md-10">
+			<div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text">Search : </span>
+			  </div>
+			  <input v-model="search" v-on:keyup.enter="onSearch()" type="text" class="form-control" placeholder="Enter search by name ...">
+			</div>
+		</div>
+		<div class="col-md-2">
+			<button @click="onAdd()" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-block">+ Add New</button>
+		</div>
+	</div>
+	<table class="table table-bordered table-sm">
+	    <thead class="thead-dark">
+	      <tr>
+	        <th># ID</th>
+	        <th># NAME</th>
+	        <th># BRAND</th>
+	        <th># PRICE</th>
+	        <th># STOCK</th>
+	        <th># ACTION</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr v-for="item in items">
+	        <td width="80">{{item.id}}</td>
+	        <td>{{item.name}}</td>
+	        <td>{{item.brand.name}}</td>
+	        <td>{{item.price}}</td>
+	        <td>{{item.stock}}</td>
+	        <td width="120">
+	        	<button @click="onEdit(item)" class="btn btn-info btn-sm">edit</button>
+          		<button @click="onDelete(item)" class="btn btn-danger btn-sm">delete</button>
+	        </td>
+	      </tr>
+	    </tbody>
+	</table>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Form item</h5>
+	        <button type="button" @click="getItems()" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			  <div class="form-group">
+			    <label>Name</label>
+			    <input v-model="item.name" type="text" class="form-control" placeholder="items name">
+			  </div>
+			  <div class="form-group">
+			    <label>Brand</label>
+			    <select v-model="select_brand" class="form-control">
+					<option value="null" disabled selected hidden>Select Brand</option>
+					<option v-for="brand in brands" v-bind:value="brand.id">
+					   {{brand.name}}
+					</option>
+				</select>
+			  </div>
+			  <div class="form-group">
+			    <label>Price</label>
+			    <input v-model="item.price" type="number" class="form-control" placeholder="items price">
+			  </div>
+			  <div class="form-group">
+			    <label>Stock</label>
+			    <input v-model="item.stock" type="number" class="form-control" placeholder="items stock">
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button @click="getItems()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button :disabled="!item.name || !item.price || !item.stock" @click="onSave()" class="btn btn-primary">{{btn_text}}</button>
+	      </div>
+	    </div>
+		
+	  </div>
+	</div>
+</div>
+<script src="/public/app/item.js"></script>
+<%- include('partials/footer'); -%>
