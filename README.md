@@ -1,6 +1,8 @@
 ## Simple CRUD Express.js Featuring Sequelize ORM
 Basic simple example CRUD (Create,Read,Update,Delete) on Nodejs using framework Express JS featuring Sequelize ORM with database MySQL.
 
+![screenshot 1](https://raw.githubusercontent.com/herudi/crud_express_sequelize/master/screenshot_1.png)
+
 ### 1) Clone project
 `git clone https://github.com/herudi/crud_express_sequelize.git`
 
